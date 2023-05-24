@@ -48,11 +48,8 @@ public:
     };
 
     // Constructor
-    explicit LTC2413(uint8_t pin_CS, float voltage_reference);
+    LTC2413(uint8_t pin_CS, float voltage_reference);
     ~LTC2413();
-            
-    // Initializes device
-    void init();
 
     // Checks and sets the end of conversion flag
     bool isConvReady();
@@ -78,7 +75,7 @@ public:
 
 private:
     const uint8_t m_csPin;
-    bool m_initialized, m_EoC;
+    bool m_EoC;
     SPISettings m_spiSettings;
 
     struct ConvFactorsType
